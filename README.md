@@ -14,7 +14,7 @@ gem 'ruby-instagram-scraper'
 
 ### Methods
 
-After installation you can make requests to Instagram.
+After installation you can do following requests to Instagram:
 
 ```ruby
 # Search by tag or username:
@@ -23,7 +23,7 @@ RubyInstagramScraper.search( "gopro" )
 # Get user media nodes:
 RubyInstagramScraper.get_user_media_nodes( "gopro" )
 
-# Pass an ID of node to offset:
+# Pass an "id" of node to offset:
 RubyInstagramScraper.get_user_media_nodes( "gopro", "1259825963188747360" )
 
 # Get media nodes by tag:
