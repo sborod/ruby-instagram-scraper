@@ -3,9 +3,9 @@ require 'json'
 
 module RubyInstagramScraper
 
-  def self.search ( username )
+  def self.search ( query )
     url = "https://www.instagram.com/web/search/topsearch/"
-    params = "?query=#{ username }"
+    params = "?query=#{ query }"
 
     JSON.parse( open( url + params ).read )
   end
@@ -26,11 +26,11 @@ module RubyInstagramScraper
     JSON.parse( open( url + params ).read )["tag"]["media"]["nodes"]
   end
 
-  def self.get_user_media_node ( code )
+  def self.get_media ( code )
     url = "https://www.instagram.com/p/#{ code }/?__a=1"
     params = ""
 
-    JSON.parse( open( url + params ).read )
+    JSON.parse( open( url + params ).read )["media"]
   end
   
 end
