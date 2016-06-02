@@ -1,7 +1,13 @@
-# 0.1.5
+# v0.1.7
+# get_user method bug fixed
+
+# v0.1.6
+# get_user method added
+
+# v0.1.5
 # Readme added
 # Some tests added
-# Some rvefactoring
+# Some refactoring
 
-# 0.1.0
+# v0.1.0
 # Initial commit.
