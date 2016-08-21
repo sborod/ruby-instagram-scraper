@@ -27,4 +27,16 @@ describe RubyInstagramScraper do
     end
   end
 
+  describe "when request user media comments" do
+    it "must be an array" do
+      RubyInstagramScraper.get_media_comments( "6zVfmqAMkD", 2 ).must_be_instance_of Array
+    end
+  end
+
+  describe "when request user media comments before specified comment_id value" do
+    it "must be an array" do
+      RubyInstagramScraper.get_media_comments( "6zVfmqAMkD", 2, "17851999804000050" ).must_be_instance_of Array
+    end
+  end
+
 end
