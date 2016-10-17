@@ -14,13 +14,13 @@ describe RubyInstagramScraper do
       RubyInstagramScraper.get_user_media_nodes( "borodanov" ).must_be_instance_of Array
     end
   end
-  
+
   describe "when request tag media nodes" do
     it "must be an array" do
-      RubyInstagramScraper.get_tag_media_nodes( "academgorodok" ).must_be_instance_of Array
+      RubyInstagramScraper.get_tag_media_nodes( "academgorodok" ).must_be_instance_of Hash
     end
   end
-  
+
   describe "when request a media" do
     it "must has equal code in field" do
       RubyInstagramScraper.get_media( "vKQeMNu7H1" )["code"].must_equal "vKQeMNu7H1"

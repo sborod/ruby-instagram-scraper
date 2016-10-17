@@ -7,7 +7,7 @@ module RubyInstagramScraper
 
   def self.search ( query )
     # return false unless query
-    
+
     url = "#{BASE_URL}/web/search/topsearch/"
     params = "?query=#{ query }"
 
@@ -35,7 +35,10 @@ module RubyInstagramScraper
     params = ""
     params = "&max_id=#{ max_id }" if max_id
 
-    JSON.parse( open( "#{url}#{params}" ).read )["tag"]["media"]["nodes"]
+    nodes = JSON.parse( open( "#{url}#{params}" ).read )["tag"]["media"]["nodes"]
+    page = JSON.parse( open( "#{url}#{params}" ).read )["tag"]["media"]["page_info"]
+
+    { nodes: nodes, page: page }
   end
 
   def self.get_media ( code )
@@ -46,7 +49,7 @@ module RubyInstagramScraper
   end
 
   def self.get_media_comments ( shortcode, count = 40, before = nil )
-    params = before.nil?? "comments.last(#{ count })" : "comments.before( #{ before } , #{count})" 
+    params = before.nil?? "comments.last(#{ count })" : "comments.before( #{ before } , #{count})"
     url = "#{BASE_URL}/query/?q=ig_shortcode(#{ shortcode }){#{ params }\
       {count,nodes{id,created_at,text,user{id,profile_pic_url,username,\
       follows{count},followed_by{count},biography,full_name,media{count},\
@@ -54,5 +57,5 @@ module RubyInstagramScraper
 
     JSON.parse( open( url ).read )["comments"]
   end
-  
+
 end
