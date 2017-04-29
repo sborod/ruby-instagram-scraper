@@ -35,7 +35,9 @@ module RubyInstagramScraper
     params = ""
     params = "&max_id=#{ max_id }" if max_id
 
-    JSON.parse( open( "#{url}#{params}" ).read )["tag"]["media"]["nodes"]
+    data = JSON.parse( open( "#{url}#{params}" ).read )["tag"]["media"]
+
+    { "nodes" => data["nodes"], "page_info" => data["page_info"] }
   end
 
   def self.get_media ( code )
