@@ -42,7 +42,7 @@ module RubyInstagramScraper
     url = "#{BASE_URL}/p/#{ code }/?__a=1"
     params = ""
 
-    JSON.parse( open( "#{url}#{params}" ).read )["media"]
+    JSON.parse( open( "#{url}#{params}" ).read )["graphql"]["shortcode_media"]
   end
 
   def self.get_media_comments ( shortcode, count = 40, before = nil )

@@ -23,7 +23,7 @@ describe RubyInstagramScraper do
   
   describe "when request a media" do
     it "must has equal code in field" do
-      RubyInstagramScraper.get_media( "vKQeMNu7H1" )["code"].must_equal "vKQeMNu7H1"
+      RubyInstagramScraper.get_media( "vKQeMNu7H1" )["shortcode"].must_equal "vKQeMNu7H1"
     end
   end
 
