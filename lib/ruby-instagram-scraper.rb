@@ -15,11 +15,11 @@ module RubyInstagramScraper
   end
 
   def self.get_user_media_nodes ( username, max_id = nil )
-    url = "#{BASE_URL}/#{ username }/media/"
+    url = "#{BASE_URL}/#{ username }/?__a=1"
     params = ""
     params = "?max_id=#{ max_id }" if max_id
 
-    JSON.parse( open( "#{url}#{params}" ).read )
+    JSON.parse( open( "#{url}#{params}" ).read )["graphql"]["user"]["edge_owner_to_timeline_media"]["edges"].map{ |t| t["node"] }
   end
 
   def self.get_user ( username, max_id = nil )
