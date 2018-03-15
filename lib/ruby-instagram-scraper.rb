@@ -54,5 +54,12 @@ module RubyInstagramScraper
 
     JSON.parse( open( url ).read )["comments"]
   end
+
+  def self.get_location ( code )
+    url = "https://www.instagram.com/explore/locations/#{ code }/?__a=1"
+    params = ""
+
+    JSON.parse( open( url + params ).read )["location"]
+  end
   
 end
