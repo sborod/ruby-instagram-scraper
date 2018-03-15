@@ -39,4 +39,10 @@ describe RubyInstagramScraper do
     end
   end
 
+  describe "when request location by id" do
+    it "users must be an array" do
+        RubyInstagramScraper.get_location(2327407)["name"].must_be_instance_of String
+    end
+  end
+
 end
