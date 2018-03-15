@@ -27,12 +27,12 @@ RubyInstagramScraper.get_user_media_nodes( "gopro" )
 RubyInstagramScraper.get_user_media_nodes( "gopro", "1259825963188747360" )
 
 # Get media nodes by tag:
-nodes = RubyInstagramScraper.get_tag_media_nodes( "gopro" )
+data = RubyInstagramScraper.get_tag_media_nodes( "gopro" )
 
-# Get next portion of nodes of same tag by passing last node "id":
-RubyInstagramScraper.get_tag_media_nodes( "gopro", nodes.last["id"] )
+# Get next portion of nodes of same tag by passing the end cursor:
+RubyInstagramScraper.get_tag_media_nodes( "gopro", data['page_info']['end_cursor'] )
 
 # Get media info:
-RubyInstagramScraper.get_media( nodes.first["code"] )
+RubyInstagramScraper.get_media( data["nodes"].first["code"] )
 RubyInstagramScraper.get_media( "BGGnlHDBV3N" )
 ```
